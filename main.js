@@ -58,7 +58,30 @@ const products = [
         image: 'https://m.media-amazon.com/images/I/71CW36JRavL._AC_SX466_.jpg'
       }]
 
-const accesorios = [{
+  const musicSection = document.querySelector("#musicSection");
+
+  
+  for (const product of products) {
+
+    const article = document.createElement("article");
+    article.classList.add("card");
+    const h2 = document.createElement("h2");
+    h2.textContent = product.name;
+    article.appendChild(h2);
+    const image = document.createElement("img");
+    image.src = product.image;
+    image.alt = product.name;
+    article.appendChild(image);
+    const p = document.createElement("p");
+    p.classList.add("description");
+    p.textContent = "Precio: " + product.price + " - " + "Vendedor: " + product.seller;
+    article.appendChild(p);
+    console.log(article);
+    musicSection.appendChild(article);
+  }
+
+
+  const accesorios = [{
     name: 'Apple Funda Transparente con MagSafe para el iPhone 15 ​​​',
     price: 46.90,
     stars: 4.5,
@@ -79,65 +102,41 @@ const accesorios = [{
     reviews: 2239,
     seller: 'Apple',
     image: 'https://m.media-amazon.com/images/I/61SUj2aKoEL._AC_SX466_.jpg'
-  },
+  },  {
+    name: 'ESR Funda para iPhone 15 Pro MAX, Compatible MagSafe​​​​​​​',
+    price: 12.74,
+    stars: 4.6,
+    reviews: 7077,
+    seller: 'Apple',
+    image: 'https://m.media-amazon.com/images/I/71IPKT379bL._AC_SX569_.jpg'
+  },  {
+    name: 'Apple Watch Series 9 (GPS + Cellular) ​​​​​​​',
+    price: 759,
+    stars: 4.6,
+    reviews: 57,
+    seller: 'Apple',
+    image: 'https://m.media-amazon.com/images/I/8105E7QO9GL._AC_SX466_.jpg'
+  }, 
 ];
-
-
-  const musicSection = document.querySelector("#musicSection");
-
-  
-  for (const product of products) {
-
-    const article = document.createElement("article");
-    //Creamos un h2
-    const h2 = document.createElement("h2");
-    //Le damos texto al h2
-    h2.textContent = product.name;
-    //Y lo metemos en el articulo
-    article.appendChild(h2);
-    //Creamos una p
-    const p = document.createElement("p");
-    //Le damos contenido al parrafo juntando el artista con el año
-    p.textContent = "Precio: " + product.price + " - " + product.seller;
-    //Y lo metemos en el articulo
-    article.appendChild(p);
-    console.log(article);
-    //Creamos una imagen vacia
-    const image = document.createElement("img");
-    image.src = product.image;
-    image.alt = product.name;
-    //Y lo metemos en el articulo
-    article.appendChild(image);
-    //Cada uno de estos articulos lo metemos en la seccion que recuperamos antes del bucle
-    musicSection.appendChild(article);
-  }
 
   const acces = document.querySelector("#acces");
 
-  
   for (const acces of accesorios) {
 
     const article = document.createElement("article");
-    //Creamos un h2
+    article.classList.add("card");
     const h2 = document.createElement("h2");
-    //Le damos texto al h2
     h2.textContent = acces.name;
-    //Y lo metemos en el articulo
     article.appendChild(h2);
-    //Creamos una p
-    const p = document.createElement("p");
-    //Le damos contenido al parrafo juntando el artista con el año
-    p.textContent = "Precio: " + acces.price + " - " + acces.seller;
-    //Y lo metemos en el articulo
-    article.appendChild(p);
     console.log(article);
-    //Creamos una imagen vacia
     const image = document.createElement("img");
     image.src = acces.image;
     image.alt = acces.name;
-    //Y lo metemos en el articulo
     article.appendChild(image);
-    //Cada uno de estos articulos lo metemos en la seccion que recuperamos antes del bucle
+    const p = document.createElement("p");
+    p.classList.add("description");
+    p.textContent = "Precio: " + acces.price + " - " + "Vendedor: " + acces.seller;
+    article.appendChild(p);
     musicSection.appendChild(article);
   }
 
